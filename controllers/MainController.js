@@ -9,6 +9,8 @@ module.exports = {
     registerUser: async (req,res) => {
         console.log(req.body)
 
+        //updatejjkjk
+
         const {username, password, email, photo}=req.body;
         const newUser = new userSchema();
 
