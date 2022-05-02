@@ -1,11 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/MainController');
 
-// const {validateUser, validateLogin, validateId, validateUpload, validateFilters,validateReservation}= require('../middle/validator');
+const {
+    loggedUserValidator,
+    registerValidator,
+    loginValidator,
+    uploadTopicValidator,
+    uploadCommentValidator,
+    getFavoritesValidator,
+} = require("../middleware/Middleware");
+
+const {
+    loggedUserController,
+    registerController,
+    loginController,
+    uploadTopicController,
+    getSingleTopicController,
+    getAllTopicsController,
+    getPagedTopicsController,
+    getPagedCommentsController,
+    getFavoritesController,
+    uploadCommentController,
+} = require('../controllers/MainController');
 
 
-router.post('/register',  controller.registerUser);
-
+router.post('/loggedUser', loggedUserValidator, loggedUserController)
+router.post('/register', registerValidator, registerController);
+router.post('/login', loginValidator, loginController);
+router.post('/get-single-topic', getSingleTopicController);
+router.get('/get-topics', getAllTopicsController);
+router.post('/get-paged-topics', getPagedTopicsController);
+router.post('/get-paged-comments', getPagedCommentsController);
+router.post('/get-favorites', getFavoritesValidator,getFavoritesController);
+router.post('/upload-topic', uploadTopicValidator, uploadTopicController);
+router.post('/upload-comment', uploadCommentValidator, uploadCommentController)
 
 module.exports = router;
