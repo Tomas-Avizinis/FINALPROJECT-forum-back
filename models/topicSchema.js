@@ -6,6 +6,10 @@ const topicSchema = new Schema({
         type: String,
         required: true
     },
+    authorId: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -30,6 +34,9 @@ const topicSchema = new Schema({
             type: String
         }
     }],
+    comments: {
+        type: Number
+    }
 })
 
 module.exports = mongoose.model('forumTopics0427', topicSchema)
