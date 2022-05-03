@@ -18,6 +18,8 @@ const {
     getSingleTopicController,
     getAllTopicsController,
     getPagedTopicsController,
+    getUserTopicsController,
+    getUserCommentsController,
     getPagedCommentsController,
     getFavoritesController,
     uploadCommentController,
@@ -31,6 +33,8 @@ router.post('/get-single-topic', getSingleTopicController);
 router.get('/get-topics', getAllTopicsController);
 router.post('/get-paged-topics', getPagedTopicsController);
 router.post('/get-paged-comments', getPagedCommentsController);
+router.post('/get-user-topics', getUserTopicsController);
+router.post('/get-user-comments', getUserCommentsController);
 router.post('/get-favorites', getFavoritesValidator,getFavoritesController);
 router.post('/upload-topic', uploadTopicValidator, uploadTopicController);
 router.post('/upload-comment', uploadCommentValidator, uploadCommentController)

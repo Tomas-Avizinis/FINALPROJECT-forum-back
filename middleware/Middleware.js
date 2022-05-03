@@ -40,7 +40,11 @@ module.exports = {
         next()
     },
     uploadTopicValidator: async(req, res, next) => {
-        const {userId} =req.body;
+
+        const {userId, title, text} =req.body;
+
+        if (title === '') return res.send({success: false, message: 'Negalite įketi temos be pavadinimo'})
+        if (text ==='') return res.send({success: false, message: 'Negalite įketi temos be teksto'})
         const user = await userSchema.findOne({_id:userId})
         if (!user) return res.send({success: false, message: 'Temas kurti gali tik prisijungę vartotojai'})
         next();
