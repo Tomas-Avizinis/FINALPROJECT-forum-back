@@ -14,6 +14,7 @@ const {
     loggedUserController,
     registerController,
     loginController,
+    getUserController,
     uploadTopicController,
     getSingleTopicController,
     getAllTopicsController,
@@ -29,6 +30,7 @@ const {
 router.post('/loggedUser', loggedUserValidator, loggedUserController)
 router.post('/register', registerValidator, registerController);
 router.post('/login', loginValidator, loginController);
+router.post('/get-user', getUserController)
 router.post('/get-single-topic', getSingleTopicController);
 router.get('/get-topics', getAllTopicsController);
 router.post('/get-paged-topics', getPagedTopicsController);

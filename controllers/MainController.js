@@ -34,6 +34,12 @@ module.exports = {
         res.send({success: true, message: `user ${findUser.username} logged`, user:findUser})
     },
 
+    getUserController: async (req, res) => {
+        const {userId} = req.body;
+        const findUser = await userSchema.findOne({_id: userId});
+        res.send({success: true, user:findUser})
+    },
+
     uploadTopicController: async (req, res) => {
         const {userId, title, text} = req.body;
         const user = await userSchema.findOne({_id:userId})
